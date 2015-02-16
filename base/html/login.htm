@@ -1,0 +1,100 @@
+<!-- [Ver.2007.02.23] -->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>2007.02.23</TITLE>
+<LINK rel="stylesheet" href="../image/style.css" type="text/css">
+<LINK rel="stylesheet" href="../image/font.css" type="text/css">
+<script src="../image/window.js" type="text/javascript"></script>
+</HEAD>
+<BODY>
+<HR width="99%">
+<CENTER>
+<FORM method="POST" action="admin.cgi" target="#target#"><BR>
+<TABLE border="0" cellpadding="0" cellspacing="1" width="400" class="teble3">
+  <TBODY>
+    <TR>
+      <TD class="title_cell2">ログインしてください。</TD>
+    </TR>
+    <TR>
+      <TD class="text1">管理画面に入るためには、ログインする必要があります。<BR>
+      ユーザー名とパスワードを入力して、ログインボタンを押してください。</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<IMG src="../image/spacer.gif" width="2" height="2" border="0" align="middle"><BR>
+<TABLE border="0" width="400" cellpadding="2" cellspacing="1" class="teble3">
+  <COL span="1" width="2">
+  <TBODY>
+    <TR>
+      <TH></TH>
+      <TD class="line_cell0" height="27">&nbsp;ユーザー名</TD>
+      <TD class="line_cell1"><FONT color="#cc0000"><!-- ERROR --></FONT><INPUT size="24" type="text" name="user_name" value="#user_name#"></TD>
+    </TR>
+    <TR>
+      <TH></TH>
+      <TD class="cell0" height="27">&nbsp;パスワード</TD>
+      <TD class="cell1"><INPUT size="24" type="password" name="user_pass"></TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<BR>
+<TABLE border="0" width="400" cellpadding="5" cellspacing="0" class="table2">
+        <TBODY>
+          <TR>
+      <TD align="center"><INPUT type="submit" value="　ログイン　"></TD>
+    </TR>
+        </TBODY>
+      </TABLE>
+<INPUT type="hidden" name="html" value="login"><INPUT type="hidden" name="action" value="login"></FORM>
+</CENTER>
+<HR width="99%">
+<CENTER><BR>
+<TABLE border="0" cellpadding="2" cellspacing="1" width="300" class="teble4" height="20">
+        <TBODY>
+          <TR>
+      <TD width="100" align="center" class="color1"><A href="admin.cgi?html=login&action=check&log=access" class="A_red">アクセス記録</A></TD>
+      <TD width="100" align="center" class="color1"><A href="admin.cgi?html=login&action=check&log=login" class="A_red">ログイン記録</A></TD>
+      <TD width="100" align="center" class="color1"><A href="admin.cgi?html=login&action=check&log=logout" class="A_red">ログアウト記録</A></TD>
+    </TR>
+        </TBODY>
+      </TABLE>
+<BR>
+<TABLE border="0" width="96%" cellpadding="4" cellspacing="0">
+  <COL span="1" width="6">
+  <COL span="1" width="140">
+  <TBODY>
+    <TR>
+      <TD>#page_link#</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<TABLE border="0" width="96%" cellpadding="0" cellspacing="1" class="font12">
+  <COL span="1" width="6">
+  <COL span="1" width="130">
+  <TBODY>
+    <TR>
+      <TH></TH>
+      <TH align="left">&nbsp;日 &nbsp;時</TH>
+      <TH align="left">&nbsp;ユーザー名</TH>
+      <TH align="left">&nbsp;ステータス</TH>
+      <TH align="left">&nbsp;ホスト名</TH>
+    </TR>
+          <!-- CUT -->
+          <TR>
+      <TH height="23"></TH>
+      <TD class="line_cell0" nowrap>&nbsp;#D-log_time#</TD>
+      <TD class="line_cell1">&nbsp;#log_name#</TD>
+      <TD class="line_cell1">&nbsp;#log_status#</TD>
+      <TD class="line_cell1">&nbsp;#log_host#</TD>
+    </TR>
+          <!-- CUT -->
+        </TBODY>
+      </TABLE>
+<BR>
+<BR>
+</CENTER>
+<HR width="99%">
+</BODY>
+</HTML>

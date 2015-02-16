@@ -1,0 +1,4 @@
+user_name	ユーザー名	text		1:	6							0
+user_pass	パスワード	text			6							0
+user_email	Eメール	text		1:8	7							0
+user_authorize	管理権限	checkbox					:HP管理者,1:ｼｽﾃﾑ管理者					0

@@ -1,0 +1,10 @@
+conf_name	変数名	text		1:6	4							0
+conf_value	設定情報											0
+conf_title	項目名	text										0
+conf_type	フォームタイプ	select					text:一行テキスト,textarea:複数行テキスト,checkbox:チェックボックス,radio:ラジオボタン,select:セレクトボックス,title:見出し					0
+conf_list	選択リスト	text										0
+conf_msg	説明	textarea										0
+conf_admin	管理者設定項目	checkbox										0
+conf_help	ヘルプコード	text		6	4							0
+conf_restrict	エラー検出	checkbox					1:省略不可<BR>,2:半角数字<BR>,3:全角数字<BR>,4:半角アルファベット<BR>,5:全角アルファベット<BR>,6:半角英数<BR>,7:全角英数<BR>,8:メールアドレス<BR>,9:ファイル名<BR>,20:ハイフンなしの電話番号（半角）<BR>,21:ハイフンありの電話番号（半角）<BR>,22:ハイフンなしの郵便番号（半角）<BR>,23:ハイフンありの郵便番号（半角）<BR>,31:全角ひらがなのみ<BR>,32:全角カタカナのみ					0
+conf_convert	入力値変換	checkbox					1:全角数字と全角ハイフンを半角に変換<BR>,2:半角数字と半角ハイフンを全角に変換<BR>,3:全角・半角ハイフンを削除<BR>,4:全角アルファベットを半角に変換<BR>,5:半角アルファベットを全角に変換<BR>,6:半角カナを全角カナに変換<BR>,7:メールアドレスを半角に変換<BR>,10:["]を[”]に変換<BR>,11:タグを無効にする					0

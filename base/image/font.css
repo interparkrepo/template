@@ -1,0 +1,71 @@
+.font8{font-size : 8px;}
+.font9{font-size : 9px;}
+.font10{font-size : 10px;}
+.font11{font-size : 11px;}
+.font12{font-size : 12px;}
+.font13{font-size : 13px;}
+.font14{font-size : 14px;}
+.font15{font-size : 15px;}
+.font16{font-size : 16px;}
+.font17{font-size : 17px;}
+.font18{font-size : 18px;}
+.font19{font-size : 19px;}
+.font20{font-size : 20px;}
+.font8B{font-size : 8px;font-weight : bold;}
+.font9B{font-size : 9px;font-weight : bold;}
+.font10B{font-size : 10px;font-weight : bold;}
+.font11B{font-size : 11px;font-weight : bold;}
+.font12B{font-size : 12px;font-weight : bold;}
+.font13B{font-size : 13px;font-weight : bold;}
+.font14B{font-size : 14px;font-weight : bold;}
+.font15B{font-size : 15px;font-weight : bold;}
+.font16B{font-size : 16px;font-weight : bold;}
+.font17B{font-size : 17px;font-weight : bold;}
+.font18B{font-size : 18px;font-weight : bold;}
+.font19B{font-size : 19px;font-weight : bold;}
+.font20B{font-size : 20px;font-weight : bold;}
+.white{color : white;}
+.red{color : #990000;}
+.black{color : black;}
+A.A_white{color:#ffffff;}
+A.A_white:hover{color:#FF3300;}
+A.A_blue{color:#535C93;}
+A.A_blue:hover{color:#FF3300;}
+A.A_gray{color:#5a5a68;}
+A.A_gray:hover{color:#FF3300;}
+A.A_green{color:#335654;}
+A.A_green:hover{color:#FF3300;}
+A.A_red{color:#924352;}
+A.A_red:hover{color:#FF3300;}
+A.A_purple{color:#666699;}
+A.A_purple:hover{color:#FF3300;}
+A.A_orange{color:#ff8000;}
+A.A_orange:hover{color:#FF3300;}
+A.A_yellow{color:#ffff88;}
+A.A_yellow:hover{color:#FF3300;}
+A.A2_white{color : white;text-decoration : none;}
+A.A2_white:hover{color:#FF3300;text-decoration : underline;}
+A.A2_blue{color:#535C93;text-decoration : none;}
+A.A2_blue:hover{color:#FF3300;text-decoration : underline;}
+A.A2_gray{color:#5a5a68;text-decoration : none;}
+A.A2_gray:hover{color:#FF3300;text-decoration : underline;}
+A.A2_green{color:#335654;text-decoration : none;}
+A.A2_green:hover{color:#FF3300;text-decoration : underline;}
+A.A2_red{color:#924352;text-decoration : none;}
+A.A2_red:hover{color:#FF3300;text-decoration : underline;}
+A.A2_purple{color:#666699;text-decoration : none;}
+A.A2_purple:hover{color:#FF3300;text-decoration : underline;}
+A.A2_orange{color:#ff8000;text-decoration : none;}
+A.A2_orange:hover{color:#FF3300;text-decoration : underline;}
+A.A2_yellow{color:#ffff88;text-decoration : none;}
+A.A2_yellow:hover{color:#FF3300;text-decoration : underline;}
+.FORM{
+  
+  
+  
+  
+  margin-top : 0px;
+  margin-left : 0px;
+  margin-right : 0px;
+  margin-bottom : 0px;
+}

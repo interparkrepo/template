@@ -1,0 +1,107 @@
+<!-- [Ver.2007.02.23] -->
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>2007.02.23</TITLE>
+<LINK rel="stylesheet" href="../image/style.css" type="text/css">
+<LINK rel="stylesheet" href="../image/font.css" type="text/css">
+<script src="../image/window.js" type="text/javascript"></script>
+</HEAD>
+<BODY>
+<TABLE border="0" cellpadding="0" cellspacing="0" width="600">
+  <TBODY>
+    <TR>
+      <TD align="center">
+      <HR width="99%">
+      <BR>
+      <BR>
+      <TABLE border="0" class="teble4" width="96%">
+        <TBODY>
+          <TR>
+            <TH>個別変換</TH>
+          </TR>
+          <TR>
+            <TD>
+            <CENTER>
+            <FORM action="admin.cgi" method="POST" class="FORM">ソースファイル：<SELECT name="file1"><!-- file1 --></SELECT>　→　保存場所：<INPUT size="20" type="text" name="file2">　<INPUT type="submit" value="圧縮開始" onclick="return confirm('圧縮処理を実行します。本当によろしいですか？');"><INPUT type="hidden" name="html" value="setup"><INPUT type="hidden" name="action" value="change"></FORM>
+            </CENTER>
+            </TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <FORM action="admin.cgi" method="POST">
+      <TABLE border="0" width="96%" cellpadding="0" cellspacing="1">
+        <COL span="1" width="6">
+        <COL span="1" width="120">
+        <TBODY>
+          <TR>
+            <TH></TH>
+            <TD class="line_cell0">&nbsp;プログラム名</TD>
+            <TD class="line_cell1"><INPUT size="31" type="text" name="pro_name" value="#pro_name#"></TD>
+          </TR>
+          <TR>
+            <TH></TH>
+            <TD class="line_cell0">&nbsp;最終更新日</TD>
+            <TD class="line_cell1"><INPUT size="31" type="text" name="final_date" value="#final_date#"></TD>
+          </TR>
+          <TR>
+            <TH></TH>
+            <TD class="line_cell0">&nbsp;前回更新日</TD>
+            <TD class="line_cell1"><INPUT size="31" type="text" name="last_date" value="#last_date#"></TD>
+          </TR>
+          <TR>
+            <TH></TH>
+            <TD class="line_cell0">&nbsp;プログラムコード</TD>
+            <TD class="line_cell1"><INPUT size="31" type="text" name="fckey" value="#fckey#"></TD>
+          </TR>
+          <TR>
+            <TH></TH>
+            <TD class="line_cell0">&nbsp;識別キー</TD>
+            <TD class="line_cell1"><INPUT size="31" type="text" name="apa" value="#apa#"></TD>
+          </TR>
+          <TR>
+            <TH></TH>
+            <TD class="line_cell0">&nbsp;更新メモ</TD>
+            <TD class="line_cell1"><TEXTAREA rows="7" cols="48" name="memo"></TEXTAREA></TD>
+          </TR>
+        </TBODY>
+      </TABLE>
+      <BR>
+      <INPUT type="submit" value="システムファイルの作成" name="system" onclick="return confirm('システムファイルの作成を行ないます。よろしいですか？');">　　<INPUT type="submit" value="アップデーターの作成" name="updata" onclick="return confirm('アップデーターファイルを作成します。よろしいですか？');"><BR>
+      <BR>
+      <TABLE border="0" width="96%" cellpadding="1" cellspacing="1" class="font13">
+        <COL span="1" width="4">
+        <TBODY>
+          <TR>
+            <TH height="21"></TH>
+            <TH width="20"><INPUT type="submit" value="全選択" name="checked"></TH>
+            <TH>ファイル名</TH>
+            <TH>ファイルサイズ</TH>
+            <TH>最終更新日時</TH>
+          </TR>
+          <!-- CUT -->
+          <TR>
+            <TH height="21"></TH>
+            <TD colspan="4" class="line_cell0">&nbsp;■<B>#dir#</B></TD>
+          </TR>
+          <!-- CUT -->
+          <TR>
+            <TH height="21"></TH>
+            <TD class="line_cell1" align="center"><INPUT type="checkbox" name="file_name" value="#dir#/#file#" #checked#></TD>
+            <TD class="line_cell1"><B>#file#</B></TD>
+            <TD class="line_cell1" align="right">#size#</TD>
+            <TD class="line_cell1" align="center">&nbsp;<INPUT size="20" type="text" name="ver_#dir#/#file#" value="#ver#"></TD>
+          </TR>
+          <!-- CUT -->
+        </TBODY>
+      </TABLE>
+      <INPUT type="hidden" name="html" value="setup"><INPUT type="hidden" name="action" value="exe"></FORM>
+      <HR width="99%">
+</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+</BODY>
+</HTML>

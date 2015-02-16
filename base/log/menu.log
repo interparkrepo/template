@@ -1,0 +1,10 @@
+1	基本設定				0
+2	アカウント設定	admin.cgi?html=account			0
+3	環境設定	admin.cgi?html=conf			0
+9	管理メニュー		1		0
+4	フォルダ設定	admin.cgi?html=folder	1		0
+6	ログイン履歴	admin.cgi?html=login&action=check	1		0
+5	メニュー管理	admin.cgi?html=menu&action=setup	1		0
+8	ライセンス情報	admin.cgi?html=admin&action=show_license	1		0
+7	環境設定管理	admin.cgi?html=conf&action=list	1		0
+10	セットアップ	admin.cgi?html=setup	1		0
