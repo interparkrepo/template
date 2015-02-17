@@ -11,9 +11,6 @@
 #|┃
 #|┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-# モジュールを宣言
-use Digest::SHA1 qw(sha1_hex);
-
 #-----------------------------------------------------------------------------0
 #										フォームデータの取得
 #------------------------------------------------------------------┤
@@ -304,29 +301,54 @@ EOF
 
 $cgi_park = qq|<DIV align="center" class="font14B"><A href="$cphp" target="_blank" class="A2_purple">- CGI\-Park -</A></DIV>|;
 package lib;
+
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 #-----------------------------------------------------------
-#  Digest::SHA-1 (hex) 暗号化
+#  Digest::SHA-1 (hex) 
 #-----------------------------------------------------------
-sub encrypt {
-    my ($pass,$crypt_key) = @_;
+sub endecrypt {
+    # 暗号Key
+	use constant CRYPT_KEY => 'ys';
+    # ダイジェストモジュールKey
+    use constant DIGEST_SHA1 => 'Digest/SHA1.pm';
 
-    # SHA1変換（hex形式）
-    return $crypt_key . sha1_hex($crypt_key . $pass);
-}
+    # ダイジェストフラグ
+	my $digest = 0;
+    foreach my $key(keys(%INC)){
+        # SHA1モジュールがインストールされている場合
+        if($key eq DIGEST_SHA1) {
+	        # モジュール宣言
+	        use Digest::SHA1 qw(sha1_hex);
+	        $digest = 1;
+	        last;
+        }
+    }
+    my ($pass, $crypt) = @_;
+    # 暗号化の場合
+    if(!defined($crypt)) {
+        # SHA-1関数を使用
+        if($digest == 1) {
+            return CRYPT_KEY . sha1_hex(CRYPT_KEY . $pass);
+        # 標準のcrypt関数を使用
+        } else {
+            return crypt($pass,CRYPT_KEY);
+        }
+    # 複合化の場合
+    } else {
+        # saltは先頭の2文字（CRYPT_KEY）を抜き出す
+        my $salt = substr($crypt, 0, length(CRYPT_KEY));
 
-#-----------------------------------------------------------
-#  Digest::SHA-1 (hex) 照合
-#-----------------------------------------------------------
-sub decrypt {
-    my ($crypt, $plain, $crypt_key) = @_;
-    # saltは先頭の2文字（$crypt_key）を抜き出す
-    my $salt = substr($crypt, 0, length($crypt_key));
-
-    # 照合
-    return $crypt eq ($salt . sha1_hex($salt . $plain)) ? 1 : 0;
+        # SHA-1関数を使用
+        if($digest == 1) {
+            # 照合
+            return $crypt eq ($salt . sha1_hex($salt . $pass)) ? 1 : 0;
+        # 標準のcrypt関数を使用
+        } else {
+            return $crypt eq (crypt($pass,$salt)) ? 1 : 0;
+        }
+    }
 }
 
 #-----------------------------------------------------------------------------0
