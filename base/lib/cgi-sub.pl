@@ -351,6 +351,53 @@ sub endecrypt {
     }
 }
 
+
+#-----------------------------------------------------------------------------0
+#										パスワードの暗号化・照合 Digest::SHA-1 (hex)
+#------------------------------------------------------------------┤
+# my $shaPw = &lib'crypt($passwd);	# 暗号化
+# my $ret = &lib'crypt($passwd, $shaPw);	# 照合
+sub crypt {
+	my($passwd,$shaPw) = @_;
+	eval "use Digest::SHA1 qw(sha1_hex)";
+	
+	my $type = 'sha1';
+	($@) && ($type = 'crypt');
+	
+	#---------------------------
+	# 暗号化
+	if (!$shaPw) {
+		my @str = ('a' .. 'f', 0 .. 9);
+		my $salt; 
+		for (1 .. 4) { 
+			$salt .= $str[int(rand(@str))]; 
+		}
+    # SHA-1関数を使用
+		if ($type eq 'sha1') {
+			return $salt . sha1_hex($salt . $passwd);
+			
+    # 標準のcrypt関数を使用
+		} else {
+			return crypt($passwd, $salt);
+		}
+		
+	#---------------------------
+	# 照合
+	} else {
+		my $salt = substr($shaPw, 0, 4);
+
+    # SHA-1関数を使用
+		if ($type eq 'sha1') {
+			return $shaPw eq ($salt . sha1_hex($salt . $passwd)) ? 1 : 0;
+			
+    # 標準のcrypt関数を使用
+		} else {
+			return $shaPw eq (crypt($passwd, $salt)) ? 1 : 0;
+		}
+	}
+}
+
+
 #-----------------------------------------------------------------------------0
 #										ファイルを開いて、中身を配列に代入する
 #------------------------------------------------------------------┤
