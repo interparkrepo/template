@@ -308,49 +308,54 @@ package lib;
 #-----------------------------------------------------------
 #  Digest::SHA-1 (hex) 
 #-----------------------------------------------------------
+# my $shaPw = &lib'endecrypt($passwd);# 暗号化
+# my $ret = &lib'endecrypt($passwd, $shaPw);# 照合
+
 sub endecrypt {
-    # 暗号Key
+	# 暗号Key
 	use constant CRYPT_KEY => 'ys';
-    # ダイジェストモジュールKey
-    use constant DIGEST_SHA1 => 'Digest/SHA1.pm';
+	# ダイジェストモジュールKey
+	use constant DIGEST_SHA1 => 'Digest/SHA1.pm';
 
-    # ダイジェストフラグ
+	# ダイジェストフラグ
 	my $digest = 0;
-    foreach my $key(keys(%INC)){
-        # SHA1モジュールがインストールされている場合
-        if($key eq DIGEST_SHA1) {
-	        # モジュール宣言
-	        use Digest::SHA1 qw(sha1_hex);
-	        $digest = 1;
-	        last;
-        }
-    }
-    my ($pass, $crypt) = @_;
-    # 暗号化の場合
-    if(!defined($crypt)) {
-        # SHA-1関数を使用
-        if($digest == 1) {
-            return CRYPT_KEY . sha1_hex(CRYPT_KEY . $pass);
-        # 標準のcrypt関数を使用
-        } else {
-            return crypt($pass,CRYPT_KEY);
-        }
-    # 複合化の場合
-    } else {
-        # saltは先頭の2文字（CRYPT_KEY）を抜き出す
-        my $salt = substr($crypt, 0, length(CRYPT_KEY));
+	foreach my $key(keys(%INC)){
+		# SHA1モジュールがインストールされている場合
+		if($key eq DIGEST_SHA1) {
+			# モジュール宣言
+			use Digest::SHA1 qw(sha1_hex);
+			$digest = 1;
+			last;
+		}
+	}
+	
+	my ($pass, $crypt) = @_;
+	# 暗号化の場合
+	if(!defined($crypt)) {
+		# SHA-1関数を使用
+		if($digest == 1) {
+			return CRYPT_KEY . sha1_hex(CRYPT_KEY . $pass);
 
-        # SHA-1関数を使用
-        if($digest == 1) {
-            # 照合
-            return $crypt eq ($salt . sha1_hex($salt . $pass)) ? 1 : 0;
-        # 標準のcrypt関数を使用
-        } else {
-            return $crypt eq (crypt($pass,$salt)) ? 1 : 0;
-        }
-    }
+		# 標準のcrypt関数を使用
+		} else {
+			return crypt($pass,CRYPT_KEY);
+		}
+
+  # 照合の場合
+	} else {
+		# saltは先頭の2文字（CRYPT_KEY）を抜き出す
+		my $salt = substr($crypt, 0, length(CRYPT_KEY));
+		
+		# SHA-1関数を使用
+		if($digest == 1) {
+			return $crypt eq ($salt . sha1_hex($salt . $pass)) ? 1 : 0;
+
+		# SHA-1関数を使用
+		} else {
+			return $crypt eq (crypt($pass,$salt)) ? 1 : 0;
+		}
+	}
 }
-
 
 #-----------------------------------------------------------------------------0
 #										パスワードの暗号化・照合 Digest::SHA-1 (hex)
